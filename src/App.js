@@ -27,21 +27,21 @@ function App() {
         <div className="desc">
         {data.weather ? <p>{data.weather[0].main}</p> : null}
         </div>
-        <div className="weather">
-            <div className="f">
-            {data.main ? <h3>{((((data.main.temp)*9)/5)+32).toFixed()}°F</h3> : null}
-            </div>
-            <div className="circle"></div>
+        <div className="weather"> 
             <div className="c">
             {data.main ? <h3>{data.main.temp.toFixed()}°C</h3> : null}
+            </div>
+            <div className="circle"></div>
+            <div className="f">
+            {data.main ? <h3>{((((data.main.temp)*9)/5)+32).toFixed()}°F</h3> : null}
             </div>
         </div>
         <div className="info">
             <h3>Sunrise: <span className="sunrise">
-            {data.main ? <h3>{new Date(data.sys.sunrise * 1000).toLocaleTimeString('en-IN')}</h3> : null}
+            {data.main ? <h3>{new Date(data.sys.sunrise * 1000).toLocaleDateString()},{new Date(data.sys.sunrise * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h3> : null}
               </span></h3>
             <h3>Sunset: <span className="sunset">
-            {data.main ? <h3>{new Date(data.sys.sunset * 1000).toLocaleTimeString('en-IN')}</h3> : null}
+            {data.main ? <h3>{new Date(data.sys.sunset * 1000).toLocaleDateString()},{new Date(data.sys.sunset * 1000).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h3> : null}
               </span></h3>
         </div>
     </div>
