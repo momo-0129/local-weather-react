@@ -1,32 +1,21 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 
-
 function App() {
-  const [lat, setLat] = useState([]);
-  const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
   
-  
-
   useEffect(() => {
     const fetchData = async () => {
       navigator.geolocation.getCurrentPosition(function(position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
-      // console.log(long)
-      // console.log(lat)
-
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=507d13237c0c5f1f95276eea0540a187&units=metric`)
-      .then(res => res.json())
-      .then(data => {
-        setData(data)
-        // console.log(data);
+        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=507d13237c0c5f1f95276eea0540a187&units=metric`)
+               .then(res => res.json())
+               .then(data => {
+                 setData(data)              
+               });
       });
     }
       fetchData();
-    } , [lat,long])
+    } , [])
   
   return (
     <div className="App">
@@ -58,7 +47,6 @@ function App() {
     </div>
     </div>
   );
-
 }
 
 export default App;
