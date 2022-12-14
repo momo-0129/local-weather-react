@@ -28,12 +28,12 @@ function App() {
         {data.weather ? <p>{data.weather[0].main}</p> : null}
         </div>
         <div className="weather">
-            <div className="c">
-            {data.main ? <h3>{((((data.main.temp)*9)/5)+32).toFixed()}°C</h3> : null}
+            <div className="f">
+            {data.main ? <h3>{((((data.main.temp)*9)/5)+32).toFixed()}°F</h3> : null}
             </div>
             <div className="circle"></div>
-            <div className="f">
-            {data.main ? <h3>{data.main.temp.toFixed()}°F</h3> : null}
+            <div className="c">
+            {data.main ? <h3>{data.main.temp.toFixed()}°C</h3> : null}
             </div>
         </div>
         <div className="info">
