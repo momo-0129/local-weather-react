@@ -18,7 +18,7 @@ function App() {
       // console.log(long)
       // console.log(lat)
 
-      await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=507d13237c0c5f1f95276eea0540a187`)
+      await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=507d13237c0c5f1f95276eea0540a187&units=metric`)
       .then(res => res.json())
       .then(data => {
         setData(data)
