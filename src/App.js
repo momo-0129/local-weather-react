@@ -43,7 +43,7 @@ function App() {
           <div className="c">
             {data.main ? <h3>{data.main.temp.toFixed()}°C</h3> : null}
           </div>
-          <div className="circle"></div>
+            {data.main ?   <div className="circle"></div> : null}
           <div className="f">
             {data.main ? (
               <h3>{((data.main.temp * 9) / 5 + 32).toFixed()}°F</h3>
